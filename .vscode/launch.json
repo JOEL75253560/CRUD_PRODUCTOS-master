@@ -1,0 +1,73 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // Configuración para ejecutar el archivo Python actual en el terminal integrado
+        {
+            "name": "Python: Archivo Actual (Terminal Integrado)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        // Configuración para conectarse de forma remota a un programa Python en ejecución
+        {
+            "name": "Python: Conexión Remota",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "."
+                }
+            ]
+        },
+        // Configuración para ejecutar un módulo Python específico
+        {
+            "name": "Python: Módulo",
+            "type": "python",
+            "request": "launch",
+            "module": "nombre-del-modulo-aqui",
+            "console": "integratedTerminal"
+        },
+        // Configuración para ejecutar un proyecto Django en el terminal integrado
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "runserver",
+                "--noreload",
+                "--nothreading"
+            ],
+            "django": true
+        },
+        // Configuración para ejecutar una aplicación Flask
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "app.py"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true
+        },
+        // Configuración para ejecutar el archivo Python actual en un terminal externo
+        {
+            "name": "Python: Archivo Actual (Terminal Externo)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "externalTerminal"
+        }
+    ]
+}
